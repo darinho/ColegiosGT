@@ -1,0 +1,35 @@
+<md-dialog aria-label="Menus"  ng-cloak>
+    <md-toolbar ng-class="editing">
+        <div class="md-toolbar-tools">
+            <h1>{{title| translate}}</h1>
+            <span flex></span>
+            <md-button class="md-fab md-mini md-warn" ng-click="cancel()"  aria-label="cancel">
+                <md-icon md-svg-icon="img/icons/ic_close_white_24px.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-progress-linear ng-show="loadingBar" md-mode="indeterminate"></md-progress-linear>
+    <form ng-submit="saved();" style="padding: 30px;">
+        <md-content>
+            <md-checkbox ng-model="allMenu" ng-change="todasMenu()" aria-label="Checkbox 1">
+                <strong>{{'general.textoTodo'| translate}}</strong>
+            </md-checkbox>
+            <md-divider></md-divider>
+            <div class="demo-section" 
+                 ivh-treeview="arbolMenu"
+                 ivh-treeview-expand-to-depth="1"                                 
+                 ivh-treeview-id-attribute="'id'"
+                 ivh-treeview-label-attribute="'label'"
+                 ivh-treeview-children-attribute="'children'"
+                 ivh-treeview-selected-attribute="'isSelected'"
+                 style="height:300px; overflow:auto; white-space: nowrap;">
+            </div> 
+        </md-content>
+        <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Save" ng-click="saved()">
+            <md-icon md-svg-icon="img/icons/ic_save_white_24px.svg"></md-icon>
+            <md-tooltip>
+                {{'general.guardar'| translate}}
+            </md-tooltip>
+        </md-button>
+    </form>
+</md-dialog>

@@ -1,0 +1,88 @@
+{
+    "header": {
+        "navbar": {
+            "UPLOAD": "Subir",
+            "new": {
+                "NEW": "Nuevo",
+                "PROJECT": "Proyectos",
+                "TASK": "Tareas",
+                "USER": "Usuario",
+                "EMAIL": "Correo"
+            },
+            "NOTIFICATIONS": "Notificaciones"
+        }
+    },
+    "aside": {
+        "nav": {
+            "HEADER": "Navegacion",
+            "DASHBOARD": "Dashboard",
+            "CALENDAR": "Calendario",
+            "EMAIL": "Correo",
+            "WIDGETS": "Widgets",
+            "components": {
+                "COMPONENTS": "Componentes",
+                "ui_kits": {
+                    "UI_KITS": "UI Kits",
+                    "BUTTONS": "Botones",
+                    "ICONS": "Iconos",
+                    "GRID": "Grid",
+                    "BOOTSTRAP": "Bootstrap",
+                    "SORTABLE": "Ordenable",
+                    "PORTLET": "Portlet",
+                    "TIMELINE": "Linea de Tiempo",
+                    "VECTOR_MAP": "Vector Map"
+                },
+                "table": {
+                    "TABLE": "Tabla",
+                    "TABLE_STATIC": "Tabla Estatica",
+                    "DATATABLE": "Tabla de Datos",
+                    "FOOTABLE": "Footable"
+                },
+                "form": {
+                    "FORM": "Form",
+                    "FORM_ELEMENTS": "Form elements",
+                    "FORM_VALIDATION": "Form validation",
+                    "FORM_WIZARD": "Form wizard"
+                },
+                "CHART": "Chart",
+                "pages": {
+                    "PAGES": "Pages",
+                    "PROFILE": "Profile",
+                    "POST": "Post",
+                    "SEARCH": "Search",
+                    "INVOICE": "Invoice",
+                    "LOCK_SCREEN": "Lock screen",
+                    "SIGNIN": "Signin",
+                    "SIGNUP": "Signup",
+                    "FORGOT_PASSWORD": "Forgot password",
+                    "404": "404"
+                }
+            },
+            "your_stuff": {
+                "YOUR_STUFF": "Your Stuff",
+                "PROFILE": "Profile",
+                "DOCUMENTS": "Documents"
+            }
+        },
+        "MILESTONE": "Milestone",
+        "RELEASE": "Release"
+    },
+    "login": {
+        "login_to": "Ingrese a su cuenta",
+        "username": "Usuario",
+        "pwd": "Contraseña",
+        "seleccioneIdioma": "Seleccione un idioma",
+        "idioma": "Idioma",
+        "olvidoPwd": "Olvide mi contraseña",
+        "ingreseUsuarioPwd": "Ingrese su usuario y contraseña.",
+        "btnEnviar": "Enviar",
+        "btnRegresar": "Regresar",
+        "salir": "salir",
+        "userRequired": "Nombre de Usuario Requerido",
+        "passRequired": "Contraseña Requerida",
+        "passIncorrecto": "Contraseña Incorrecta",
+        "userIncorrecto": "Usuario no existe",
+        "selectProfile": "Seleccione un Perfil"
+    }
+
+}

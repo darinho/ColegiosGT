@@ -1,0 +1,49 @@
+
+<md-toolbar class="md-table-toolbar md-default" ng-hide="selected.length || filter.show">
+    <div class="md-toolbar-tools">
+        <h2 class="md-title">Colegios</h2>
+        <div flex></div>
+        <md-button class="md-fab md-mini md-primary" ng-click="filter.show = true" aria-label="filter">
+            <md-icon md-svg-icon="img/icons/ic_filter_list_white_24px.svg"></md-icon>
+        </md-button>
+        <md-button class="md-fab md-mini md-primary" ng-click="addNew($event)" aria-label="add" ng-disabled="!loadCountry">
+            <md-icon md-svg-icon="img/icons/ic_add_circle_white_24px.svg"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+
+<md-toolbar class="md-table-toolbar md-default" ng-show="filter.show && !selected.length">
+    <div class="md-toolbar-tools">
+        <md-icon md-svg-icon="img/icons/ic_search_white_24px.svg"></md-icon>
+        <form flex name="filter.form">
+            <input type="text" ng-model="query.filter" ng-model-options="filter.options" placeholder="search">
+        </form>
+        <md-button class="md-fab md-mini md-warn" ng-click="removeFilter()"  aria-label="close">
+            <md-icon md-svg-icon="img/icons/ic_close_white_24px.svg"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+
+<!-- exact table from live demo -->
+
+<md-content class='md-padding' layout='row' layout-wrap>
+    <md-card style="width: 350px;"ng-repeat="school in schools.data| filter:query.filter"><!-- ng-repeat='school in schools.data| filter: {user:{person:{txtFullName: query.filter}}}'>-->
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{school.txtName}}</span>
+                <div class='md-subhead'>
+                    <span><b>{{'school.nit'| translate}}</b> {{school.nit}}</span><br>
+                    <span>{{school.address.txtColony}} {{school.address.txtIndications}} {{school.address.txtNumberHouse}} {{'address.intZone'| translate}} {{school.address.intZone| number: 0}}, {{school.address.city.txtName}}, {{school.address.city.state.txtName}}, {{school.address.city.state.country.txtName}}</span><br>
+                </div>
+            </md-card-title-text>
+            <md-card-title-media>
+                <md-button class="md-fab md-mini md-primary" ng-click="addNew($event, school)" aria-label="edit" ng-disabled="!loadCountry">
+                    <md-icon md-svg-icon="img/icons/ic_mode_edit_white_24px.svg"></md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini md-warn" ng-click="delete($event, school)" aria-label="delete">
+                    <md-icon md-svg-icon="img/icons/ic_delete_white_24px.svg"></md-icon>
+                </md-button>
+            </md-card-title-media>
+        </md-card-title>
+    </md-card>
+</md-content>

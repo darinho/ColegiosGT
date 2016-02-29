@@ -1,0 +1,42 @@
+<login>
+    <md-content class="layout-fill layout-margin layout-align-center-start layout-row"> 
+        <md-whiteframe style='max-width: 400px' class="md-whiteframe-z2 layout-fill layout-column flex-md-50 flex-lg-50 flex-gt-lg-33 flex"> 
+            <md-toolbar class="md-primary"> 
+                <div class="md-toolbar-tools md-toolbar-tools-bottom layout-row"> 
+                    <h3 class="md-display-1"> Sign in </h3> 
+                </div>
+            </md-toolbar> 
+            <div class="layout-fill layout-margin layout-padding layout-column"> 
+                <div class="layout-fill layout-margin layout-row"> 
+                    <p class="md-body-2"> Use existing account</p> 
+                </div> 
+                <div class="layout-fill layout-margin layout-padding layout-wrap layout-row"> 
+                    <md-button class="md-fab md-mini" style="background-color: red" aria-label='google plus'> 
+                        <md-icon md-svg-icon="img/icons/gplus.svg"></md-icon> 
+                    </md-button> 
+                </div> 
+                <md-divider class="inset"></md-divider> 
+                <div class="layout-fill layout-margin layout-row"> 
+                    <p class="md-body-2">{{'login.ingreseUsuarioPwd'| translate}}</p>
+                </div> 
+                <ng-form name="loginForm" class="layout-fill layout-margin layout-padding layout-column"> 
+                    <md-input-container> 
+                        <label for="input_6"> {{'login.username'| translate}} </label> 
+                        <input name="usernam" type="email" ng-model="credentials.email" aria-label="email" required="" id="input_6" aria-required="true" aria-invalid="true"> 
+                    </md-input-container> 
+                    <md-input-container> 
+                        <label for="input_7"> {{'login.pwd'| translate}} </label> 
+                        <input name="passw" type="password" ng-model="credentials.password" aria-label="password" required="" id="input_7" aria-required="true" aria-invalid="true"> 
+                    </md-input-container> 
+                    <md-button class="md-raised md-primary md-button" ng-click="login()" aria-label="login" ng-disabled="loginForm.$invalid" aria-disabled="false">
+                        <span class="ng-scope">{{'login.login_to'| translate}}</span>
+                    </md-button> 
+                </ng-form> 
+                <a ui-sref='/resetpw'>{{'login.olvidoPwd'| translate}}</a>
+                <md-toolbar ng-show="error" class="md-warn layout-fill layout-margin layout-padding layout-row ng-hide" aria-hidden="true"> 
+                    <p class="md-body-1 ng-binding"></p> 
+                </md-toolbar> 
+            </div>
+        </md-whiteframe> 
+    </md-content>
+</login>

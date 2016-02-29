@@ -1,0 +1,72 @@
+<md-dialog aria-label="Nuevo Colegio"  ng-cloak>
+    <md-toolbar ng-class="editing">
+        <div class="md-toolbar-tools">
+            <h1>{{title| translate}}</h1>
+            <span flex></span>
+            <md-button class="md-fab md-mini md-warn" ng-click="cancel()"  aria-label="cancel">
+                <md-icon md-svg-icon="img/icons/ic_close_white_24px.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-progress-linear ng-show="loadingBar" md-mode="indeterminate"></md-progress-linear>
+    <form ng-submit="saved();" style="padding: 30px;">
+        <md-content>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{'school.name'| translate}}</label>
+                    <input ng-model="school.txtName">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{'school.nit'| translate}}</label>
+                    <input ng-model="school.nit">
+                </md-input-container>
+            </div>
+        </md-content>
+        <md-content>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{'address.txtColony'| translate}}</label>
+                    <input ng-model="school.address.txtColony">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{'address.txtNumberHouse'| translate}}</label>
+                    <input ng-model="school.address.txtNumberHouse">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{'address.txtIndications'| translate}}</label>
+                    <input ng-model="school.address.txtIndications">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{'address.intZone'| translate}}</label>
+                    <input ng-model="school.address.intZone">
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{'address.country'| translate}}</label>
+                    <md-select id="country" ng-model="countri" name="country" required ng-required='true'>
+                        <md-option ng-repeat="c in countries" value="{{c}}">{{c.txtName}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{'address.state'| translate}}</label>
+                    <md-select id="state"  ng-model="stat" name="state" required ng-required='true'>
+                        <md-option ng-repeat="s in country.states" value="{{s}}">{{s.txtName}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{'address.city'| translate}}</label>
+                    <md-select id="city" ng-model="citi" name="city" required ng-required='true'>
+                        <md-option ng-repeat="cy in state.cities" value="{{cy}}">{{cy.txtName}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </md-content>
+        <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Save" ng-click="saved()">
+            <md-icon md-svg-icon="img/icons/ic_save_white_24px.svg"></md-icon>
+            <md-tooltip>
+                {{'general.guardar'| translate}}
+            </md-tooltip>
+        </md-button>
+    </form>
+</md-dialog>

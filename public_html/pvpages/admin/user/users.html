@@ -1,0 +1,29 @@
+<md-toolbar class='md-table-toolbar md-default'>
+    <div class="md-toolbar-tools">
+        <h2 class="md-title">{{title|translate}}</h2>
+        <form flex name="filter.form">
+            <input type="text" ng-model="query.filter" ng-model-options="filter.options" placeholder="search">
+        </form>
+        <div flex></div>
+        <md-button class="md-fab md-mini md-primary" ng-click="addNew($event)" aria-label="add">
+            <md-icon md-svg-icon="img/icons/ic_add_circle_white_24px.svg"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content class='md-padding' layout='row' layout-wrap>
+    <md-card style="width: 350px;" ng-repeat='up in usersProfiles| filter: {user:{person:{txtFullName: query.filter}}}'>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{up.user.person.txtFirstNameF}} {{up.user.person.txtLastNameF}}</span>
+                <div class='md-subhead'>
+                    <span>{{up.profile.txtDescription}}</span><br>
+                    <span>{{up.licence.txtLicence}}</span><br>
+                    <span>{{up.user.txtUser}}</span>
+                </div>
+            </md-card-title-text>
+            <md-card-title-media>
+                <div class="md-media-lg card-media"></div>
+            </md-card-title-media>
+        </md-card-title>
+    </md-card>
+</md-content>

@@ -1,0 +1,42 @@
+<md-toolbar style="padding-right: 10px; background-color: rgb(33,150,243);color: rgb(255,255,255);">
+    <div class="md-toolbar-tools">
+        <!--<md-button class="md-icon-button sidebar-toggle" data-toggle="offcanvas" role="button" aria-label="Settings">
+            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>-->
+        <md-button class="js-show-sidedrawer" role="button" aria-label="Settings">
+            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>
+        <md-button class="js-hide-sidedrawer" role="button" aria-label="Settings">
+            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>
+        <a href="index.html" class="logo">
+            <span class="logo-lg"><b>Colegios</b></span>
+        </a>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Apps">
+            <md-icon md-svg-icon="img/icons/ic_apps_white_24px.svg"></md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Notifications">
+            <md-icon md-svg-icon="img/icons/ic_notifications_white_24px.svg"></md-icon>
+        </md-button>
+        <md-menu md-offset="0 -7">
+            <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                <img src="img/avatar04.png" class="image-icone" alt="User Image">
+            </md-button>
+            <md-menu-content width="3" style="margin-top: 56px">
+                <md-menu-item class="user-header" style="height: 100px">
+                    <img src="img/avatar04.png" class="img-circle" style="width: 70px" alt="User Image">
+                    <p class="ng-binding">
+                        Dario Calderon
+                    </p>
+                </md-menu-item>
+
+                <md-menu-item style="padding: 20px">
+                    <md-button class="md-raised md-primary" ng-click="perfil()">Mi Perfil</md-button>
+                    <span flex></span>
+                    <md-button class="md-raised md-warn" ng-click="logout()">Salir</md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</md-toolbar>

@@ -1,0 +1,91 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+    <div class="col">
+        <div style="background:url(img/c4.jpg) center center; background-size:cover">
+            <div class="wrapper-lg bg-white-opacity">
+                <div class="row m-t">
+                    <div class="col-sm-12">
+                        <a href class="thumb-lg pull-left m-r">
+                            <img check-image ng-src='{{getImgUri()}}' class="img-circle">
+                        </a>
+                        <div class="clear m-b">
+                            <div class="m-b m-t-sm">
+                                <span class="h3 text-black">{{user.person.txtFirstNameF}} {{user.person.txtLastNameF}}</span>
+                                <small class="m-l">{{profileLoad.profile.txtDescription}}</small>
+                            </div>
+                            <p class="m-b">
+                                {{profileLoad.licence.school.txtName}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper bg-white b-b">
+            <ul class="nav nav-pills nav-sm">
+                <li class="active"><a href>{{'general.forums'| translate}}</a></li>
+            </ul>
+        </div>
+        <div class="padder">      
+            <div class="streamline b-l b-info m-l-lg m-b padder-v">
+                <div ng-repeat="forum in forums">
+                    <div>
+                        <a class="pull-left thumb-sm avatar m-l-n-md">
+                            <img check-image src="{{forum.userProfile.user.txtImageURI + 'imgt.jpg'}}" alt="...">
+                        </a> 
+                        <div class="m-l-lg m-b-lg panel b-a bg-light lt">
+                            <div class="panel-heading pos-rlt b-light">
+                                <span class="arrow arrow-light left"></span>                    
+                                <a href class="h4">{{forum.userProfile.user.person.txtFirstNameF}} {{forum.userProfile.user.person.txtLastNameF}}</a>
+                                <label class="label bg-light m-l-xs">{{forum.userProfile.profile.txtDescription}}</label> 
+                                <span class="text-muted m-l-sm pull-right">
+                                    {{forum.date}}
+                                </span>
+                            </div>
+                            <div class="panel-body">
+                                <div class="m-b">
+                                    <div>{{forum.txtComment}}</div>
+                                    <div class="m-t-sm">
+                                        <a href ng-click="forum.isNewForum = forum.isNewForum ? false : true" class="text-muted m-xs"><i class="icon-bubble"></i> {{forum.intComments}}</a>
+                                        <a href class="text-muted m-xs"><i class="icon-like"></i> {{forum.intLikes}}</a>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default m-t-md m-b-n-sm pos-rlt" ng-if="forum.isNewForum">
+                                    <form>
+                                        <textarea class="form-control no-border" rows="3" placeholder="Your comment..." ng-model="forum.newForum"></textarea>
+                                    </form>
+                                    <div class="panel-footer bg-light lter">
+                                        <button class="btn btn-info pull-right btn-sm" ng-click="createForum(forum)">Comment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .comment-reply -->
+                    <div class="m-l-lg" ng-repeat="dis in forum.discution">
+                        <a class="pull-left thumb-sm avatar m-l-n-md">
+                            <img check-image src="{{dis.userProfile.user.txtImageURI + 'imgt.jpg'}}" alt="...">
+                        </a>   
+                        <div class="m-l-lg m-b-lg panel b-a bg-light lt">
+                            <div class="panel-heading pos-rlt b-light">
+                                <span class="arrow arrow-light left"></span>                    
+                                <a href class="h4">{{dis.userProfile.user.person.txtFirstNameF}} {{dis.userProfile.user.person.txtLastNameF}}</a>
+                                <label class="label bg-light m-l-xs">{{dis.userProfile.profile.txtDescription}}</label> 
+                                <span class="text-muted m-l-sm pull-right">
+                                    {{dis.date}}
+                                </span>
+                            </div>
+                            <div class="panel-body">
+                                <div class="m-b">
+                                    <div>{{forum.txtComment}}</div>
+                                    <div class="m-t-sm">
+                                        <a href class="text-muted m-xs"><i class="icon-like"></i> {{forum.intLikes}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

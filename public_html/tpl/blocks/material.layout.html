@@ -1,0 +1,18 @@
+<div ng-controller="IndexController">
+    <div class="md-navbar navbar blue md-whiteframe-z1" data-ng-include=" 'tpl/blocks/material.header.html'" >
+    </div>
+    <div layout="row">
+        <!-- menu -->
+        <div flex class="md-aside md-content hidden-xs" data-ng-include=" 'tpl/blocks/material.aside.html'">
+        </div>
+        <!-- / menu -->
+
+        <!-- view -->
+        <div flex layout="column">
+            <div ui-butterbar></div>
+            <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".md-aside" ></a>
+            <div class="md-content md-aside-custom" ui-view></div>
+        </div>
+        <!-- / view -->
+    </div>
+</div>	

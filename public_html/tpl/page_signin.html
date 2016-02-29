@@ -1,0 +1,31 @@
+<div class="container w-xxl w-auto-xs" ng-controller="LoginController">
+    <md-whiteframe style="max-width: 500px; margin-top: 20px;" class="md-whiteframe-z2 layout-fill layout-column flex-md-50 flex-lg-50 flex-gt-lg-33 flex"> 
+        <md-content style="padding: 20px;">
+            <a href class="navbar-brand block m-t"><img src="img/logo/icon32x32.png">{{app.name}}</a>
+            <div class="m-b-lg">
+                <div class="wrapper text-center">
+                    <strong>{{'login.ingreseUsuarioPwd'| translate}}</strong>
+                </div>
+                <form name="loginForm" class="form-validation">
+                    <div class="text-danger wrapper text-center" ng-show="authError">
+                        {{authError}}
+                    </div>
+                    <md-input-container style="width: 100%"> 
+                        <label for="input_6"> {{'login.username'| translate}} </label> 
+                        <input name="usernam" type="email" ng-model="credentials.email" aria-label="email" required="" id="input_6" aria-required="true" aria-invalid="true"> 
+                    </md-input-container> 
+                    <md-input-container style="width: 100%"> 
+                        <label for="input_7"> {{'login.pwd'| translate}} </label> 
+                        <input name="passw" type="password" ng-model="credentials.password" aria-label="password" required="" id="input_7" aria-required="true" aria-invalid="true"> 
+                    </md-input-container> 
+                    <button type="submit" class="btn blue btn-lg btn-block" ng-click="login()" ng-disabled='loginForm.$invalid'>{{'login.login_to'| translate}}</button>
+                    <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">{{'login.olvidoPwd'| translate}}</a></div>
+                    <div class="line line-dashed"></div>
+                </form>
+            </div>
+            <div class="text-center" ng-include="'tpl/blocks/page_footer.html'">
+                {% include 'blocks/page_footer.html' %}
+            </div>
+        </md-content>
+    </md-whiteframe>
+</div>

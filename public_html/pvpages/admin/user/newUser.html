@@ -1,0 +1,176 @@
+<md-dialog aria-label="Nuevo Usuario" ng-cloak>
+    <form name="userForm" novalidate ng-submit="saveUser(!userForm.$invalid);">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h1>{{title|translate}}</h1>
+                <span flex></span>
+                <md-button style="background-color: skyblue; margin-top: 20px" class="md-fab md-primary" data-target="#carousel-user" data-slide-to="0" aria-label="Datos de Usuario">
+                    <md-icon md-svg-icon="img/icons/user_data.svg"></md-icon> 
+                    <md-tooltip md-direction="bottom">
+                        {{'user.userdata'| translate}} 
+                    </md-tooltip>
+                </md-button>
+                <md-button style="background-color: skyblue; margin-top: 20px;" class="md-fab md-primary" data-target="#carousel-user" data-slide-to="1" aria-label="Datos Personales">
+                    <md-icon md-svg-icon="img/icons/personal_data.svg"></md-icon> 
+                    <md-tooltip md-direction="bottom">
+                        {{'user.personaldata'| translate}}
+                    </md-tooltip>
+                </md-button>
+                <md-button style="background-color: skyblue; margin-top: 20px;" class="md-fab md-primary" data-target="#carousel-user" data-slide-to="2" aria-label="Datos Personales">
+                    <md-icon md-svg-icon="img/icons/direction.svg"></md-icon> 
+                    <md-tooltip md-direction="bottom">
+                        {{'user.direccion'| translate}}
+                    </md-tooltip>
+                </md-button>
+                <md-button class="md-icon-button md-mini md-warn" ng-click="cancel()"  aria-label="cancel">
+                    <md-icon md-svg-icon="img/icons/ic_close_white_24px.svg"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div id="carousel-user" class="carousel slide" data-interval="false" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.user'| translate}}</label>
+                                    <input name="user" type="email" ng-model="up.user.txtUser" required>
+                                </md-input-container>
+                            </div>
+                            <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.profile'| translate}}</label>
+                                    <md-select required ng-model="up.profile.idProfile" aria-label='profile'>
+                                        <md-option ng-repeat="p in profiles" value="{{p.idProfile}}">
+                                            {{p.txtDescription}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.user'| translate}}</label>
+                                    <input name="maxmins" type="number" min="0" ng-model="up.user.intDaysChangePwd" value="0">
+                                </md-input-container>
+                            </div>
+                            <md-button>
+                                <label for="file-input">Select Imagen</label>  
+                            </md-button>
+                            <input ng-hide="true" id="file-input" ng-model="up.user.person.image" type="file">
+                        </div>
+                        <div class="item">
+                            <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.nameF'| translate}}</label>
+                                    <input type="text" ng-model="up.user.person.txtFirstNameF" name="nameF" required
+                                           ng-change="up.user.person.txtFullName = up.user.person.txtFirstNameF + ' ' + up.user.person.txtFirstNameS + ' ' + up.user.person.txtFirstNameT + ' ' + up.user.person.txtLastNameF + ' ' + up.user.person.txtLastNameS + ' ' + up.user.person.txtLastNameT">
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.nameS'| translate}}</label>
+                                    <input type="text" ng-model="up.user.person.txtFirstNameS"
+                                           ng-change="up.user.person.txtFullName = up.user.person.txtFirstNameF + ' ' + up.user.person.txtFirstNameS + ' ' + up.user.person.txtFirstNameT + ' ' + up.user.person.txtLastNameF + ' ' + up.user.person.txtLastNameS + ' ' + up.user.person.txtLastNameT">
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.nameT'| translate}}</label>
+                                    <input type="text" ng-model="up.user.person.txtFirstNameT"
+                                           ng-change="up.user.person.txtFullName = up.user.person.txtFirstNameF + ' ' + up.user.person.txtFirstNameS + ' ' + up.user.person.txtFirstNameT + ' ' + up.user.person.txtLastNameF + ' ' + up.user.person.txtLastNameS + ' ' + up.user.person.txtLastNameT">
+                                </md-input-container>
+                            </div>
+                            <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.lnameF'| translate}}</label>
+                                    <input type="text" ng-model="up.user.person.txtLastNameF" name="lastName" required
+                                           ng-change="up.user.person.txtFullName = up.user.person.txtFirstNameF + ' ' + up.user.person.txtFirstNameS + ' ' + up.user.person.txtFirstNameT + ' ' + up.user.person.txtLastNameF + ' ' + up.user.person.txtLastNameS + ' ' + up.user.person.txtLastNameT">
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.lnameS'| translate}}</label>
+                                    <input type="text" ng-model="up.user.person.txtLastNameS"
+                                           ng-change="up.user.person.txtFullName = up.user.person.txtFirstNameF + ' ' + up.user.person.txtFirstNameS + ' ' + up.user.person.txtFirstNameT + ' ' + up.user.person.txtLastNameF + ' ' + up.user.person.txtLastNameS + ' ' + up.user.person.txtLastNameT">
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.lnameT'| translate}}</label>
+                                    <input type="text" ng-model="up.user.person.txtLastNameT"
+                                           ng-change="up.user.person.txtFullName = up.user.person.txtFirstNameF + ' ' + up.user.person.txtFirstNameS + ' ' + up.user.person.txtFirstNameT + ' ' + up.user.person.txtLastNameF + ' ' + up.user.person.txtLastNameS + ' ' + up.user.person.txtLastNameT">
+                                </md-input-container>
+                            </div>
+                            <div>
+                                <md-toolbar>
+                                    {{'user.documents'|translate}}
+                                    <span flex></span>
+                                    <md-button class="md-fab md-button md-primary" aria-label="Nuevo" ng-click="up.user.person.documents.push({})">
+                                        <md-icon md-svg-icon="img/icons/personal_data.svg"></md-icon> 
+                                        <md-tooltip md-direction='bottom'>
+                                            {{'general.add'| translate}}
+                                        </md-tooltip>
+                                    </md-button>
+                                </md-toolbar>
+                                <div layout-gt-sm="row" ng-repeat="res in up.user.person.documents">
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>{{'user.profile'| translate}}</label>
+                                        <md-select required ng-model="res.documentType.idDocumentType" aria-label='documentType'>
+                                            <md-option ng-repeat="dt in documentsTypes" value="{{dt.idDocumentType}}">
+                                                {{dt.txtName}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>{{'user.document'| translate}}</label>
+                                        <input type="text" name="document" ng-model="res.txtDocument" required/>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>{{'user.address.indications'| translate}}</label>
+                                <input type="text" ng-model="up.user.person.address.txtIndications">
+                            </md-input-container>
+                            <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.address.numberhouse'| translate}}</label>
+                                    <input type="text" ng-model="up.user.person.address.txtNumberHouse" name="numberHouse" required>
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.address.zone'| translate}}</label>
+                                    <input type="number" ng-model="up.user.person.address.intZone" name="zone" required>
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'user.address.colony'| translate}}</label>
+                                    <input type="text" ng-model="up.user.person.address.txtColony">
+                                </md-input-container>
+                            </div>
+                            <div layout-gt-sm="row">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'general.country'| translate}}</label>
+                                    <md-select id="country" ng-model="countri" name="country" aria-label='country' required ng-required='true'>
+                                        <md-option ng-repeat="c in countries" value="{{c}}">{{c.txtName}}</md-option>
+                                    </md-select>
+                                    <label  ng-show="loadCountry"><img src="img/loading.gif"></label>
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'general.state'| translate}}</label>
+                                    <md-select id="state"  ng-model="stat" name="state" aria-label='state' required ng-required='true'>
+                                        <md-option ng-repeat="s in country.states" value="{{s}}">{{s.txtName}}</md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{'general.city'| translate}}</label>
+                                    <md-select id="city" ng-model="citi" name="city" aria-label='city' required ng-required='true'>
+                                        <md-option ng-repeat="cy in state.cities" value="{{cy}}">{{cy.txtName}}</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-button type='submit' class="md-fab md-fab-bottom-right md-primary" aria-label="Guardar Usuario" ng-disabled="userForm.$invalid">
+            <md-icon md-svg-icon="img/icons/ic_save_white_24px.svg"></md-icon> 
+            <md-tooltip md-direction="bottom">
+                {{'general.saveChanges'|translate}}
+            </md-tooltip>
+        </md-button>
+    </form>
+</md-dialog>

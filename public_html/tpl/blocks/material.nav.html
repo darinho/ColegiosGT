@@ -1,0 +1,9 @@
+<!-- list -->
+
+<ul class="Y" ng-repeat="m1 in menu| filter:{idParent: 0}: true">
+    <li class="bR">{{m1.txtName| translate}}</li>
+    <li role="menuitem" class="oin9Fc cQ HZ" ng-repeat="m in menu| filter:{idParent: m1.idMenu}: true" ui-sref="{{m.txtLink}}">
+        <i class="i-24 m-t-sm" ng-class="m.txtIcon"></i>
+        {{m.txtName}}
+    </li>
+</ul>

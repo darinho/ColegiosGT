@@ -1,0 +1,17 @@
+<md-toolbar class="md-theme-light" style='min-width: 400px'>
+    <h2 class="md-toolbar-tools">
+        <span>{{'login.selectProfile'| translate}}</span>
+    </h2>
+</md-toolbar>
+<md-content>
+    <md-list>
+        <md-list-item class="md-3-line" ng-repeat="prof in profiles">
+            <div class="md-list-item-text">
+                <h2>{{prof.profile.txtDescription}}</h2>
+                <h3>{{prof.licence.school.txtName}}</h3>
+            </div>
+            <md-button class="md-secondary" ng-click="select(prof);">{{'general.txt_selection'| translate}}</md-button>
+            <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+    </md-list>
+</md-content>

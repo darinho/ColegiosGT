@@ -1,0 +1,113 @@
+<div ng-controller="ctrlMenu">
+    <md-toolbar style="box-shadow: 0 2px 5px rgba(0,0,0,0.26); padding-right: 10px; background-color: rgb(33,150,243);color: rgb(255,255,255); z-index: 3000">
+        <div class="md-toolbar-tools">
+            <md-button class="js-show-sidedrawer" role="button" aria-label="Settings">
+                <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+            </md-button>
+            <md-button class="js-hide-sidedrawer" role="button" aria-label="Settings">
+                <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+            </md-button>
+            <md-button ui-ref="index" target="_blank" style="font-size: 18px">
+                <img src="img/logo/icon32x32.png"><i>College</i>                
+            </md-button>
+            <span flex></span>
+            <div class="mui-dropdown">
+                <md-button class="md-icon-button" data-mui-toggle="dropdown" aria-label='Open Lang'>
+                    <md-icon md-svg-icon="img/icons/ic_language_white_24px.svg"></md-icon>
+                    <md-tooltip md-direction="bottom">{{lang.name}}</md-tooltip>
+                </md-button>
+                <div class="mui-dropdown__menu mui-dropdown__menu--right" style="background-color: rgb(33,150,243);">
+                    <md-toolbar class="md-theme-light">
+                        <div class="md-toolbar-tools">
+                            <span>{{'login.seleccioneIdioma'|translate}}</span>
+                        </div>
+                    </md-toolbar>
+                    <md-content>
+                        <md-grid-list
+                            md-cols="1" md-cols-sm="2" md-cols-md="2" md-cols-gt-md="2"
+                            md-row-height-gt-md="1:1" md-row-height="2:2"
+                            md-gutter="8px" md-gutter-gt-sm="4px" >
+                            <md-grid-tile ng-repeat="l in langs"
+                                          md-rowspan="1"
+                                          md-colspan="1"
+                                          md-colspan-sm="1" >
+                                <md-button class="md-icon-button" aria-label='{{l.name}}' ng-click="updateLang(l)">
+                                    <img class="img-space-circle" ng-src="{{l.url}}"/>
+                                </md-button>
+                            </md-grid-tile>
+                        </md-grid-list>
+                    </md-content>
+                </div>
+            </div>
+            <md-button class="md-icon-button" aria-label="Apps">
+                <md-icon md-svg-icon="img/icons/ic_apps_white_24px.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Notifications">
+                <md-icon md-svg-icon="img/icons/ic_notifications_white_24px.svg"></md-icon>
+            </md-button>
+            <div class="mui-dropdown">
+                <md-button class="md-icon-button" data-mui-toggle="dropdown">
+                    <img src="img/avatar04.png" class="image-icone img-circle" alt="User Image">
+                </md-button>
+                <md-card class="mui-dropdown__menu mui-dropdown__menu--right">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline" style="color: black">{{user.person.txtFirstNameF}} {{user.person.txtLastNameF}}</span>
+                            <span class="md-subhead">{{user.txtUser}}</span>
+                            <span class="md-subhead">{{profileLoad.profile.txtDescription}}</span>
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <div class="md-media-lg card-media">
+                                <img src="img/avatar04.png" class="img-circle" alt="User Image">
+                            </div>
+                        </md-card-title-media>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button class="md-raised md-primary" ng-click="perfil()">Mi Perfil</md-button>
+                        <md-button class="md-raised md-warn" ng-click="logout()">Salir</md-button>
+                    </md-card-actions>
+                </md-card>
+                <!--
+                                    <md-list>
+                                        <md-list-item class="md-3-line">
+                                            <img src="img/avatar04.png" class="img-circle" style="width: 70px" alt="User Image">
+                                            <span style="color: black">
+                                                Dario Calderon
+                                            </span>
+                                            <md-divider></md-divider>
+                                        </md-list-item>
+                                        <md-list-item>
+                                            <div class="pull-left">
+                                                <md-button class="md-raised md-primary" ng-click="perfil()">Mi Perfil</md-button>
+                                            </div>
+                                            <div class="pull-right">
+                                                <md-button class="md-raised md-warn" ng-click="logout()">Salir</md-button>
+                                            </div>
+                                        </md-list-item>
+                                    </md-list>-->
+            </div>
+        </div>
+    </md-toolbar>
+    <div id="sidedrawer" class="sidebar-config">
+        <div class="fv-nav-g-col-left tTwEpb">
+            <div role="menu" class="lQ-g-col-left">
+                <ul class="Y" ng-repeat="m1 in menus| filter:{ menu:{idParent: 0} }">
+                    <li class="bR">{{m1.menu.txtName| translate}}</li>
+                    <li role="menuitem" class="oin9Fc cQ HZ" ng-repeat="m in menus| filter:{ menu:{idParent: m1.menu.idMenu} }" ui-sref="{{m.menu.txtLink}}">
+                    <md-icon md-svg-icon="{{m.menu.txtIcon}}"></md-icon>
+                    {{m.menu.txtName}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="content-wrapper">
+        <div class="mui--appbar-height"></div>
+        <div class="mui-container-fluid">
+            <br>
+            <md-content style='background-color: #f2f2f2;' ui-view="content">
+            </md-content>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="material/navbar/style.css">

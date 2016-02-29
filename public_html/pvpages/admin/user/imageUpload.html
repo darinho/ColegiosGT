@@ -1,0 +1,44 @@
+<!--<div ng-model="file" 
+     ng-model-options="{debounce: 100}" 
+     ngf-multiple="false" 
+     ngf-pattern="'image/*'" 
+     ngf-accept="'image/*'" 
+     ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', pattern:'image/*'}" 
+     ngf-validate="{size: {max: '5MB', min: '10B'}}" 
+     ngf-resize="{width: 1000, height: 1000, centerCrop: true}" 
+     ngf-resize-if="$width > 5000 || $height > 5000" 
+     ngf-allow-dir="false" 
+     class="drop-box ng-pristine ng-untouched ng-valid" 
+     ngf-drop-available="true">Select File or Drop File
+</div>-->
+
+<div ngf-drop ngf-select ng-model="files" class="drop-box" 
+     ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+     accept="image/*" 
+     ngf-pattern="'image/*'">Drop images here or click to upload</div>
+<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+<img ng-show='files' ngf-thumbnail="file || 'img/thumb.png'">
+
+<style type="text/css">
+    .button {
+        -moz-appearance: button;
+        /* Firefox */
+        -webkit-appearance: button;
+        /* Safari and Chrome */
+        padding: 10px;
+        margin: 10px;
+        width: 70px;
+    }
+    .drop-box {
+        background: #F8F8F8;
+        border: 5px dashed #DDD;
+        width: 200px;
+        height: 65px;
+        text-align: center;
+        padding-top: 25px;
+        margin: 10px;
+    }
+    .dragover {
+        border: 5px dashed blue;
+    }
+</style>

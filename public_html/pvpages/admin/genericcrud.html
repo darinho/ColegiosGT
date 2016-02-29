@@ -1,0 +1,15 @@
+<div>
+    <table ng-class="grid.class">
+        <tr>
+            <th ng-repeat="c in grid.columns">{{c.text| translate}}</th>
+        </tr>
+        <tr ng-repeat="d in data">
+            <td ng-repeat="c in grid.columns">
+                {{d[c.name]}}
+            </td>
+        </tr>
+    </table>
+</div>
+<div>
+
+</div>
